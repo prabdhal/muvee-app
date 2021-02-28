@@ -1,0 +1,29 @@
+nav {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: cyan;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+.nav-link {
+  padding: var(--navLinkPadding);
+  margin: var(--navLinkMargin);
+  cursor: pointer;
+}
+
+nav div {
+  display: flex;
+  flex-direction: row;
+  padding: var(--navLinkPadding);
+  margin: var(--navLinkMargin);
+  cursor: pointer;
+}
