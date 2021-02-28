@@ -1,5 +1,5 @@
-#moviesSearchable {
-  padding: 20px;
+.movie {
+  padding: 30px;
 }
 
 .section {
@@ -8,26 +8,56 @@
   overflow-x: auto;
 }
 
+.section::-webkit-scrollbar {
+  display: none;
+}
+
 .section img {
   width: 300px;
+  margin: 0 7px;
   transition: all 250ms;
+}
+.section img:first-child {
+  margin-left: 0px;
+}
+.section img:last-child {
+  margin-right: 0px;
 }
 
 .section img:hover {
+  z-index: 99;
   margin-left: 0 40px;
-  transform: scale(1.2);
+  transform: scale(1.1);
   cursor: pointer;
 }
 
 .content {
   display: none;
+  width: 100%;
+  padding: 10px;
   border: 1px solid black;
 }
 
 .content-display {
-  display: block;
+  display: flex;
+  div {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+
+    iframe {
+      margin: 5px;
+    }
+  }
 }
 
 #contentClose {
+  color: red;
+  font-weight: 1000;
+  margin-right: 10px;
   cursor: pointer;
+}
+
+h2 {
+  padding: 10px;
 }

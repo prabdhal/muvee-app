@@ -1,7 +1,6 @@
 // selected DOM elements
 const movieSearchInputElement = document.querySelector('#movieSearchInput');
 const searchMovieButtonElement = document.querySelector('#searchMovieButton');
-const searchMovieFormElement = document.querySelector('search-movie-form');
 const moviesSearchableElement = document.querySelector('#moviesSearchable');
 const moviesContainer = document.querySelector('#moviesContainer');
 
@@ -42,6 +41,7 @@ function movieSection(movies) {
     if (movie.poster_path) {
       const img = document.createElement('img');
       img.src = `${IMAGE_URL}${movie.poster_path}`;
+      img.classList = 'movie-poster';
       img.setAttribute('data-movie-id', movie.id);
 
       section.appendChild(img);
@@ -101,6 +101,7 @@ function createVideoTemplate(data, content) {
 // Event Delegation
 document.onclick = function (e) {
   const target = e.target;
+  console.log(target);
 
   // open movie content when clicking movie poster
   if (target.classList.contains('movie-poster')) {

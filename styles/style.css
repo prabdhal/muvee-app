@@ -28,19 +28,21 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   background-color: cyan;
+  padding: 0 10px;
+}
+
+.logo {
+  width: 25%;
 }
 
 nav ul {
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   list-style: none;
 }
 
@@ -50,7 +52,9 @@ nav ul {
   cursor: pointer;
 }
 
-nav div {
+nav .search-and-account-container {
+  width: 25%;
+  min-width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,13 +62,19 @@ nav div {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding: var(--navLinkPadding);
-  margin: var(--navLinkMargin);
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   cursor: pointer;
 }
 
-#moviesSearchable {
-  padding: 20px;
+.account-link {
+  padding: var(--navLinkPadding);
+  margin: var(--navLinkMargin);
+}
+
+.movie {
+  padding: 30px;
 }
 
 .section {
@@ -75,29 +85,190 @@ nav div {
   overflow-x: auto;
 }
 
+.section::-webkit-scrollbar {
+  display: none;
+}
+
 .section img {
   width: 300px;
+  margin: 0 7px;
   -webkit-transition: all 250ms;
   transition: all 250ms;
 }
 
+.section img:first-child {
+  margin-left: 0px;
+}
+
+.section img:last-child {
+  margin-right: 0px;
+}
+
 .section img:hover {
+  z-index: 99;
   margin-left: 0 40px;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
   cursor: pointer;
 }
 
 .content {
   display: none;
+  width: 100%;
+  padding: 10px;
   border: 1px solid black;
 }
 
 .content-display {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content-display div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.content-display div iframe {
+  margin: 5px;
 }
 
 #contentClose {
+  color: red;
+  font-weight: 1000;
+  margin-right: 10px;
   cursor: pointer;
+}
+
+h2 {
+  padding: 10px;
+}
+
+.search-movie-form {
+  -webkit-animation: hideForm 250ms ease-in-out forwards;
+          animation: hideForm 250ms ease-in-out forwards;
+}
+
+.show-form {
+  -webkit-animation: showForm 250ms ease-in-out forwards;
+          animation: showForm 250ms ease-in-out forwards;
+}
+
+@-webkit-keyframes showForm {
+  0% {
+    display: none;
+  }
+  2% {
+    display: -webkit-box;
+    display: flex;
+  }
+  100% {
+    display: -webkit-box;
+    display: flex;
+  }
+}
+
+@keyframes showForm {
+  0% {
+    display: none;
+  }
+  2% {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  100% {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@-webkit-keyframes hideForm {
+  0% {
+    display: -webkit-box;
+    display: flex;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes hideForm {
+  0% {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+.search-input {
+  -webkit-animation: shrinkInput 250ms ease-in-out forwards;
+          animation: shrinkInput 250ms ease-in-out forwards;
+}
+
+.expand-input {
+  -webkit-animation: expandInput 250ms ease-in-out forwards;
+          animation: expandInput 250ms ease-in-out forwards;
+}
+
+@-webkit-keyframes expandInput {
+  0% {
+    display: none;
+    width: 0;
+  }
+  2% {
+    display: -webkit-box;
+    display: flex;
+  }
+  100% {
+    width: 250px;
+  }
+}
+
+@keyframes expandInput {
+  0% {
+    display: none;
+    width: 0;
+  }
+  2% {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  100% {
+    width: 250px;
+  }
+}
+
+@-webkit-keyframes shrinkInput {
+  0% {
+    width: 250px;
+  }
+  100% {
+    width: 0px;
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes shrinkInput {
+  0% {
+    width: 250px;
+  }
+  100% {
+    width: 0px;
+    display: none;
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

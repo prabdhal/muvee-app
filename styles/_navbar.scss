@@ -5,12 +5,17 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: cyan;
+  padding: 0 10px;
+}
+
+.logo {
+  width: 25%;
 }
 
 nav ul {
+  width: 80%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   list-style: none;
 }
 
@@ -21,10 +26,16 @@ nav ul {
 }
 
 // navbar logo and search/account
-nav div {
+nav .search-and-account-container {
+  width: 25%;
+  min-width: 300px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.account-link {
   padding: var(--navLinkPadding);
   margin: var(--navLinkMargin);
-  cursor: pointer;
 }

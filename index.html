@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="Movies App Website" content="This is a movies app website">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/7669cc6507.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./styles/style.css">
   <title>Movies App - Home</title>
 </head>
@@ -19,27 +20,24 @@
         <li class="nav-link">Categories</li>
         <li class="nav-link">MyStuff</li>
       </ul>
-      <div>
-        <div>Search</div>
-        <div>Account</div>
+      <div class="search-and-account-container">
+        <i class="fas fa-search" id="searchButton"></i>
+        <form class="search-movie-form">
+          <input type="text" class="search-input" id="movieSearchInput" placeholder="Enter a movie...">
+          <button hidden type="submit" id="searchMovieButton"></button>
+        </form>
+        <div class="account-link">Account</div>
       </div>
     </nav>
   </header>
 
   <main>
-    <form class="search-movie-form">
-      <input type="text" id="movieSearchInput" placeholder="Enter a movie...">
-      <button type="submit" id="searchMovieButton">Search</button>
-    </form>
+    <div id="moviesSearchable"></div>
+    <div id="moviesContainer"></div>
   </main>
-
-  <div id="moviesSearchable"></div>
-  <div id="moviesContainer"></div>
-  <footer>
-    
-  </footer>
   
   <script src="apiTransaction.js"></script>
   <script src="app.js"></script>
+  <script src="appResponsive.js"></script>
 </body>
 </html>
