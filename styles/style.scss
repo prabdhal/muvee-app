@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(#0f2027, #203a43, #2c5364);
+  color: goldenrod;
+}
+
 :root {
   --navLinkMargin: 0 10px;
   --navLinkPadding: 2px;
@@ -13,67 +19,3 @@
 
 @import 'Navbar';
 @import 'Movies';
-
-.search-movie-form {
-  animation: hideForm 250ms ease-in-out forwards;
-}
-
-.show-form {
-  animation: showForm 250ms ease-in-out forwards;
-}
-
-@keyframes showForm {
-  0% {
-    display: none;
-  }
-  2% {
-    display: flex;
-  }
-
-  100% {
-    display: flex;
-  }
-}
-
-@keyframes hideForm {
-  0% {
-    display: flex;
-  }
-  100% {
-    display: none;
-    opacity: 0;
-  }
-}
-
-.search-input {
-  animation: shrinkInput 250ms ease-in-out forwards;
-}
-
-.expand-input {
-  animation: expandInput 250ms ease-in-out forwards;
-}
-
-@keyframes expandInput {
-  0% {
-    display: none;
-    width: 0;
-  }
-  2% {
-    display: flex;
-  }
-
-  100% {
-    width: 250px;
-  }
-}
-
-@keyframes shrinkInput {
-  0% {
-    width: 250px;
-  }
-  100% {
-    width: 0px;
-    display: none;
-    opacity: 0;
-  }
-}

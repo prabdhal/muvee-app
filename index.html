@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="Movies App Website" content="This is a movies app website">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7669cc6507.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./styles/style.css">
   <title>Movies App - Home</title>
@@ -12,21 +14,25 @@
 <body>
   <header>
     <nav>
-      <div class="logo">Movies App</div>
+      <a href="#" class="logo">Movies App</a>
       <ul>
         <li class="nav-link">Home</li>
         <li class="nav-link">Store</li>
         <li class="nav-link">Channels</li>
+        <ul class="nav-drop-down open" id="dropDown">
+          <li class="nav-link">Upcoming Movies</li>
+          <li class="nav-link">Top Rated Movies</li>
+          <li class="nav-link">Popular Movies</li>
+        </ul>
         <li class="nav-link">Categories</li>
         <li class="nav-link">MyStuff</li>
       </ul>
       <div class="search-and-account-container">
         <i class="fas fa-search" id="searchButton"></i>
-        <form class="search-movie-form">
-          <input type="text" class="search-input" id="movieSearchInput" placeholder="Enter a movie...">
+        <form class="hide-search-movie-form">
+          <input type="text" class="hide-search-input" id="movieSearchInput" placeholder="Enter a movie...">
           <button hidden type="submit" id="searchMovieButton"></button>
         </form>
-        <div class="account-link">Account</div>
       </div>
     </nav>
   </header>
@@ -38,6 +44,5 @@
   
   <script src="apiTransaction.js"></script>
   <script src="app.js"></script>
-  <script src="appResponsive.js"></script>
 </body>
 </html>

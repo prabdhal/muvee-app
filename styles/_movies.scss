@@ -35,7 +35,7 @@
   display: none;
   width: 100%;
   padding: 10px;
-  border: 1px solid black;
+  box-shadow: inset 1px 1px 5px #32667c, inset -1px 0 5px #32667c;
 }
 
 .content-display {
@@ -60,4 +60,8 @@
 
 h2 {
   padding: 10px;
+}
+
+.movie-video {
+  border: none;
 }

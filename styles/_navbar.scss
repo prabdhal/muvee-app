@@ -4,12 +4,19 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: cyan;
+  background: linear-gradient(#0f2027, #203a43, #2c5364);
+  color: white;
   padding: 0 10px;
+  box-shadow: 0.5px 0.5px 6px black;
 }
 
 .logo {
+  display: inline-block;
   width: 25%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: goldenrod;
+  cursor: pointer;
 }
 
 nav ul {
@@ -25,6 +32,12 @@ nav ul {
   cursor: pointer;
 }
 
+.nav-link:hover,
+.account-link:hover {
+  color: goldenrod;
+  transition: color 250ms;
+}
+
 // navbar logo and search/account
 nav .search-and-account-container {
   width: 25%;
@@ -32,10 +45,109 @@ nav .search-and-account-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
+  color: goldenrod;
   cursor: pointer;
 }
 
 .account-link {
   padding: var(--navLinkPadding);
   margin: var(--navLinkMargin);
+}
+
+.hide-search-movie-form {
+  animation: hideForm 250ms ease-in-out forwards;
+}
+
+.show-form {
+  animation: showForm 250ms ease-in-out forwards;
+}
+
+@keyframes showForm {
+  0% {
+    display: none;
+  }
+  2% {
+    display: flex;
+  }
+
+  100% {
+    display: flex;
+  }
+}
+
+@keyframes hideForm {
+  0% {
+    display: flex;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+.expand-input::placeholder {
+  color: white;
+}
+
+.hide-search-input {
+  animation: shrinkInput 250ms ease-in-out forwards;
+}
+
+.expand-input {
+  padding: 5px;
+  border: 1px solid white;
+  background-color: #0f2027;
+  color: white;
+  outline: 0;
+  margin: 5px;
+  animation: expandInput 250ms ease-in-out forwards;
+}
+
+@keyframes expandInput {
+  0% {
+    display: none;
+    width: 0;
+  }
+  2% {
+    display: flex;
+  }
+
+  100% {
+    width: 200px;
+  }
+}
+
+@keyframes shrinkInput {
+  0% {
+    width: 200px;
+  }
+  100% {
+    width: 0px;
+    display: none;
+    opacity: 0;
+  }
+}
+
+.nav-drop-down {
+  display: none;
+  position: absolute;
+  top: -10%;
+  left: 38%;
+  z-index: -1;
+}
+
+.open {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 7.5%;
+  left: 38%;
+  padding: 20px;
+  text-align: center;
+  background-color: #203a43;
+  border: 1px solid #0f2027;
+  z-index: 1;
+  cursor: pointer;
 }

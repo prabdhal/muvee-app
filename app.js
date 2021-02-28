@@ -4,6 +4,9 @@ const searchMovieButtonElement = document.querySelector('#searchMovieButton');
 const moviesSearchableElement = document.querySelector('#moviesSearchable');
 const moviesContainer = document.querySelector('#moviesContainer');
 
+const searchButton = document.querySelector('#searchButton');
+const searchMovieFormElement = document.querySelector('form');
+
 function handleError() {
   console.log('Error: ', err);
 }
@@ -51,7 +54,7 @@ function movieSection(movies) {
   return section;
 }
 
-function createMovieContainer(movies, title = '') {
+function createMovieContainer(movies, title = 'Search Results') {
   const movieElement = document.createElement('div');
   movieElement.setAttribute('class', 'movie');
 
@@ -61,7 +64,7 @@ function createMovieContainer(movies, title = '') {
   const content = document.createElement('div');
   content.classList = 'content';
 
-  const contentClose = `<p id="contentClose">X</p>`;
+  const contentClose = `<i class="fas fa-times-circle" id="contentClose"></i>`;
 
   content.innerHTML = contentClose;
 
@@ -79,12 +82,13 @@ function createIframe(video) {
   iframe.width = 360;
   iframe.height = 315;
   iframe.allowFullscreen = true;
+  iframe.classList = 'movie-video';
 
   return iframe;
 }
 
 function createVideoTemplate(data, content) {
-  content.innerHTML = `<p id="contentClose">X</p>`;
+  content.innerHTML = `<i class="fas fa-window-close" id="contentClose"></i>`;
   console.log('Videos:', data);
   const videos = data.results;
   const length = videos.length > 4 ? 4 : videos.length;
@@ -102,6 +106,18 @@ function createVideoTemplate(data, content) {
 document.onclick = function (e) {
   const target = e.target;
   console.log(target);
+
+  // toggle search input field
+  if (
+    target.classList.contains('search-and-account-container') ||
+    target.classList.contains('fa-search') ||
+    target.classList.contains('expand-input') ||
+    target.classList.contains('show-form')
+  ) {
+    showSearchBar();
+  } else {
+    hideSearchBar();
+  }
 
   // open movie content when clicking movie poster
   if (target.classList.contains('movie-poster')) {
@@ -131,6 +147,28 @@ document.onclick = function (e) {
     content.classList.remove('content-display');
   }
 };
+
+searchButton.onclick = (e) => {
+  console.log(searchMovieFormElement);
+  searchMovieFormElement.classList.add('show-form');
+  movieSearchInputElement.classList.add('expand-input');
+  searchMovieFormElement.classList.remove('search-movie-form');
+  movieSearchInputElement.classList.remove('search-input');
+};
+
+function hideSearchBar() {
+  searchMovieFormElement.classList.add('search-movie-form');
+  movieSearchInputElement.classList.add('search-input');
+  searchMovieFormElement.classList.remove('show-form');
+  movieSearchInputElement.classList.remove('expand-input');
+}
+
+function showSearchBar() {
+  searchMovieFormElement.classList.add('show-form');
+  movieSearchInputElement.classList.add('expand-input');
+  searchMovieFormElement.classList.remove('search-movie-form');
+  movieSearchInputElement.classList.remove('search-input');
+}
 
 searchMovie('Spiderman');
 getTopRatedMovies();
