@@ -17,7 +17,7 @@ searchMovieButtonElement.onclick = (e) => {
   movieSearchInputElement.value = '';
 };
 
-// fetch searched movie data
+// fetch searched movie data only
 function renderSearchMovies(data) {
   moviesSearchableElement.innerHTML = '';
   const movies = data.results;
@@ -26,38 +26,50 @@ function renderSearchMovies(data) {
   console.log(data);
 }
 
-// fetch searched movie data
+// fetch movie data
 function renderMovies(data) {
+  const title = this.title;
   const movies = data.results;
-  const movieBlock = createMovieContainer(movies);
+  const movieBlock = createMovieContainer(movies, title);
   moviesContainer.appendChild(movieBlock);
   console.log(data);
 }
 
 function movieSection(movies) {
-  return movies.map((movie) => {
+  const section = document.createElement('section');
+  section.classList = 'section';
+  movies.map((movie) => {
     if (movie.poster_path) {
-      return `<img class="movie-poster"
-      src=${IMAGE_URL}${movie.poster_path} 
-      data-movie-id=${movie.id}>`;
+      const img = document.createElement('img');
+      img.src = `${IMAGE_URL}${movie.poster_path}`;
+      img.setAttribute('data-movie-id', movie.id);
+
+      section.appendChild(img);
     }
   });
+
+  return section;
 }
 
-function createMovieContainer(movies) {
+function createMovieContainer(movies, title = '') {
   const movieElement = document.createElement('div');
   movieElement.setAttribute('class', 'movie');
 
-  const movieTemplate = `
-    <section class="section">
-      ${movieSection(movies)}
-    </section>
-    <div class="content">
-      <p id="contentClose">X</p>
-    </div>
-    `;
+  const header = document.createElement('h2');
+  header.innerHTML = title;
 
-  movieElement.innerHTML = movieTemplate;
+  const content = document.createElement('div');
+  content.classList = 'content';
+
+  const contentClose = `<p id="contentClose">X</p>`;
+
+  content.innerHTML = contentClose;
+
+  const section = movieSection(movies);
+
+  movieElement.appendChild(header);
+  movieElement.appendChild(section);
+  movieElement.appendChild(content);
   return movieElement;
 }
 
@@ -119,6 +131,7 @@ document.onclick = function (e) {
   }
 };
 
+searchMovie('Spiderman');
 getTopRatedMovies();
 getUpcomingMovie();
 getPopularMovies();
