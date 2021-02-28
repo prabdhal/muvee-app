@@ -62,4 +62,42 @@ nav div {
   margin: var(--navLinkMargin);
   cursor: pointer;
 }
+
+#moviesSearchable {
+  padding: 20px;
+}
+
+.section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.section img {
+  width: 300px;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+}
+
+.section img:hover {
+  margin-left: 0 40px;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  cursor: pointer;
+}
+
+.content {
+  display: none;
+  border: 1px solid black;
+}
+
+.content-display {
+  display: block;
+}
+
+#contentClose {
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */

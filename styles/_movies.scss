@@ -1,0 +1,33 @@
+#moviesSearchable {
+  padding: 20px;
+}
+
+.section {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.section img {
+  width: 300px;
+  transition: all 250ms;
+}
+
+.section img:hover {
+  margin-left: 0 40px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.content {
+  display: none;
+  border: 1px solid black;
+}
+
+.content-display {
+  display: block;
+}
+
+#contentClose {
+  cursor: pointer;
+}
