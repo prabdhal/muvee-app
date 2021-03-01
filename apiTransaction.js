@@ -45,3 +45,19 @@ function getPopularMovies() {
   const render = renderMovies.bind({ title: 'Popular Movies' });
   requestMovies(url, render, handleError);
 }
+
+function getTrendingMoviesWeek() {
+  const path = '/trending/movie/week';
+  const url = generateUrl(path);
+
+  const render = renderMovies.bind({ title: 'Trending This Week' });
+  requestMovies(url, render, handleError);
+}
+
+function getTrendingMoviesToday() {
+  const path = '/trending/movie/day';
+  const url = generateUrl(path);
+
+  const render = renderMovies.bind({ title: 'Trending Today' });
+  requestMovies(url, render, handleError);
+}

@@ -12,23 +12,62 @@
   display: none;
 }
 
-.section img {
-  width: 300px;
+.movie-container {
+  display: flex;
+  position: relative;
+  width: 250px;
   margin: 0 7px;
+  z-index: 10;
+}
+
+.movie-card {
+  display: flex;
+  width: 250px;
+  flex-direction: column;
   transition: all 250ms;
 }
-.section img:first-child {
+
+.movie-card:first-child {
   margin-left: 0px;
 }
-.section img:last-child {
+.movie-card:last-child {
   margin-right: 0px;
 }
 
-.section img:hover {
-  z-index: 99;
-  margin-left: 0 40px;
-  transform: scale(1.1);
+.movie-container:hover .movie-card {
   cursor: pointer;
+  transform: rotateY(0.5turn);
+}
+
+.movie-details {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  opacity: 0;
+  margin: 0 7px;
+  color: white;
+  transform: rotateY(0.5turn);
+  transition: all 250ms;
+}
+
+.movie-details h3 {
+  color: goldenrod;
+  margin: 5px 0;
+}
+
+.movie-details figcaption {
+  padding: 5px;
+  max-height: 230px;
+  overflow-y: auto;
+}
+
+.movie-details div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 7px;
+  color: goldenrod;
 }
 
 .content {

@@ -17,14 +17,14 @@
       <a href="#" class="logo">Movies App</a>
       <ul>
         <li class="nav-link">Home</li>
-        <li class="nav-link">Store</li>
-        <li class="nav-link">Channels</li>
-        <ul class="nav-drop-down open" id="dropDown">
-          <li class="nav-link">Upcoming Movies</li>
-          <li class="nav-link">Top Rated Movies</li>
-          <li class="nav-link">Popular Movies</li>
+        <li class="nav-link">TV Shows</li>
+        <li class="nav-link" id="dropDownLink">Movies</li>
+        <ul class="nav-drop-down" id="dropDown">
+          <li class="drop-link"><a href="#Trending Today">Trending Movies</a></li>
+          <li class="drop-link"><a href="#Upcoming Movies">Upcoming Movies</a></li>
+          <li class="drop-link"><a href="#Top Rated Movies">Top Rated Movies</a></li>
+          <li class="drop-link"><a href="#Popular Movies">Popular Movies</a></li>
         </ul>
-        <li class="nav-link">Categories</li>
         <li class="nav-link">MyStuff</li>
       </ul>
       <div class="search-and-account-container">
@@ -42,7 +42,12 @@
     <div id="moviesContainer"></div>
   </main>
   
+  <footer>
+    <span>Movie App</span> -
+    <span>&#169; 2021 Prabdeep Dhaliwal</span>
+  </footer>
   <script src="apiTransaction.js"></script>
   <script src="app.js"></script>
+  <script src="reponsive.js"></script>
 </body>
 </html>

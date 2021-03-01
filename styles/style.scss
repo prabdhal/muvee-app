@@ -4,6 +4,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+  scroll-behavior: smooth;
 }
 
 body {
@@ -14,8 +16,21 @@ body {
 
 :root {
   --navLinkMargin: 0 10px;
-  --navLinkPadding: 2px;
+  --navLinkPadding: 23px 2px;
 }
 
 @import 'Navbar';
 @import 'Movies';
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4%;
+  background: linear-gradient(#0f2027, #203a43, #2c5364);
+  box-shadow: 0.5px 0.5px 6px black;
+
+  span {
+    margin: 0 10px;
+  }
+}
