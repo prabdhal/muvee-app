@@ -20,10 +20,14 @@ nav {
 }
 
 nav ul {
-  width: 80%;
+  position: relative;
+  left: 5%;
+  right: 5%;
+  transform: translate(-10%);
   display: flex;
   justify-content: center;
   list-style: none;
+  z-index: 999;
 }
 
 .nav-link {
@@ -102,6 +106,12 @@ nav .search-and-account-container {
 }
 
 .hide-search-input {
+  padding: 5px;
+  border: 1px solid white;
+  background-color: #0f2027;
+  color: white;
+  outline: 0;
+  margin: 5px;
   animation: shrinkInput 250ms ease-in-out forwards;
 }
 
@@ -145,7 +155,7 @@ nav .search-and-account-container {
   position: absolute;
   top: -10%;
   left: 38%;
-  z-index: -1;
+  z-index: 1000;
 }
 
 .open {
@@ -153,12 +163,12 @@ nav .search-and-account-container {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 7.5%;
-  left: 38%;
+  top: 100%;
+  left: 40%;
   padding: 20px;
   text-align: center;
   background-color: #203a43;
   border: 1px solid #0f2027;
-  z-index: 1;
+  z-index: 1000;
   cursor: pointer;
 }

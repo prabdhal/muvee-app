@@ -220,9 +220,3 @@ getTrendingMoviesToday();
 getTrendingMoviesWeek();
 getTopRatedMovies();
 getPopularMovies();
-
-// Title
-// Overview
-// Year
-// Popularity
-// adults (18+) else All

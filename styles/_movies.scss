@@ -17,7 +17,6 @@
   position: relative;
   width: 250px;
   margin: 0 7px;
-  z-index: 10;
   transition: all 1s ease-in-out;
 }
 
@@ -25,7 +24,7 @@
   display: flex;
   width: 250px;
   flex-direction: column;
-  transition: all 1s ease-in-out;
+  transition: all 500ms;
 }
 
 .movie-card:first-child {
@@ -39,8 +38,9 @@
   transform: rotateY(0.5turn);
 }
 .movie-poster {
+  width: 250px;
   opacity: 1;
-  transition: all 1s ease-in-out;
+  transition: all 500ms;
 }
 
 .movie-container:hover .movie-card .movie-poster {
@@ -60,7 +60,7 @@
   opacity: 0;
   margin: 0 7px;
   color: white;
-  transition: all 1s ease-in-out;
+  transition: all 500ms;
 }
 
 .movie-details h3 {

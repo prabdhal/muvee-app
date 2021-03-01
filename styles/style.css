@@ -53,7 +53,11 @@ nav {
 }
 
 nav ul {
-  width: 80%;
+  position: relative;
+  left: 5%;
+  right: 5%;
+  -webkit-transform: translate(-10%);
+          transform: translate(-10%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -61,6 +65,7 @@ nav ul {
       -ms-flex-pack: center;
           justify-content: center;
   list-style: none;
+  z-index: 999;
 }
 
 .nav-link {
@@ -193,6 +198,12 @@ nav .search-and-account-container {
 }
 
 .hide-search-input {
+  padding: 5px;
+  border: 1px solid white;
+  background-color: #0f2027;
+  color: white;
+  outline: 0;
+  margin: 5px;
   -webkit-animation: shrinkInput 250ms ease-in-out forwards;
           animation: shrinkInput 250ms ease-in-out forwards;
 }
@@ -264,7 +275,7 @@ nav .search-and-account-container {
   position: absolute;
   top: -10%;
   left: 38%;
-  z-index: -1;
+  z-index: 1000;
 }
 
 .open {
@@ -277,13 +288,13 @@ nav .search-and-account-container {
       -ms-flex-direction: column;
           flex-direction: column;
   position: absolute;
-  top: 7.5%;
-  left: 38%;
+  top: 100%;
+  left: 40%;
   padding: 20px;
   text-align: center;
   background-color: #203a43;
   border: 1px solid #0f2027;
-  z-index: 1;
+  z-index: 1000;
   cursor: pointer;
 }
 
@@ -310,7 +321,6 @@ nav .search-and-account-container {
   position: relative;
   width: 250px;
   margin: 0 7px;
-  z-index: 10;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
@@ -324,8 +334,8 @@ nav .search-and-account-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
 }
 
 .movie-card:first-child {
@@ -342,9 +352,10 @@ nav .search-and-account-container {
 }
 
 .movie-poster {
+  width: 250px;
   opacity: 1;
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
 }
 
 .movie-container:hover .movie-card .movie-poster {
@@ -372,8 +383,8 @@ nav .search-and-account-container {
   opacity: 0;
   margin: 0 7px;
   color: white;
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
 }
 
 .movie-details h3 {
