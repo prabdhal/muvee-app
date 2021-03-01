@@ -230,7 +230,7 @@ function showSearchBar() {
   movieSearchInputElement.classList.remove('search-input');
 }
 
-searchMovie('Spiderman');
+searchMovie('Kung fu panda');
 getUpcomingMovie();
 getTrendingMoviesToday();
 getTrendingMoviesWeek();
