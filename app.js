@@ -55,14 +55,26 @@ function movieSection(movies) {
 
       const movieDetails = document.createElement('div');
       movieDetails.classList = 'movie-details';
+
+      const movieHeader = document.createElement('div');
+      movieHeader.classList = 'movie-header';
       const movieTitle = document.createElement('h3');
+      const addToListButton = document.createElement('button');
+      addToListButton.innerHTML = '<i class="fas fa-plus-square"></i>';
+      const button = addToListButton.firstElementChild;
+      button.setAttribute('data-movie-id', movie.id);
+      movieHeader.appendChild(movieTitle);
+      movieHeader.appendChild(addToListButton);
       movieTitle.innerHTML = movie.title;
+
       const movieOverview = document.createElement('figcaption');
       movieOverview.innerHTML = movie.overview;
+
       const movieTrailerLink = document.createElement('div');
       movieTrailerLink.innerHTML = 'View Trailers';
       movieTrailerLink.classList = 'trailer-link';
       movieTrailerLink.setAttribute('data-movie-id', movie.id);
+
       const movieInfo = document.createElement('div');
       // child elements for movie info div
       const movieYear = document.createElement('span');
@@ -77,13 +89,16 @@ function movieSection(movies) {
       movieInfo.appendChild(movieRating);
       movieInfo.appendChild(movieDiscretion);
 
-      movieDetails.appendChild(movieTitle);
+      movieDetails.appendChild(movieHeader);
       movieDetails.appendChild(movieOverview);
       movieDetails.appendChild(movieTrailerLink);
       movieDetails.appendChild(movieInfo);
+
       movieCard.appendChild(img);
       movieCard.appendChild(movieDetails);
+
       movieContainer.appendChild(movieCard);
+
       section.appendChild(movieContainer);
     }
   });
@@ -139,11 +154,9 @@ function createVideoTemplate(data, content) {
     content.appendChild(iframeContainer);
   }
 }
-
 // Event Delegation
 document.onclick = function (e) {
   const target = e.target;
-  console.log(target);
 
   // toggle search input field
   if (
@@ -157,6 +170,7 @@ document.onclick = function (e) {
     hideSearchBar();
   }
 
+  // get all trailers videos for a movie
   if (target.classList.contains('trailer-link')) {
     // open movie content when clicking movie poster
     const movieId = target.dataset.movieId;
@@ -166,7 +180,6 @@ document.onclick = function (e) {
       e.target.parentElement.parentElement.parentElement.parentElement;
     const content = section.nextElementSibling;
     content.classList.add('content-display');
-    console.log(section.nextElementSibling);
 
     // fetch movie videos
     const path = `/movie/${movieId}/videos`;
@@ -186,6 +199,12 @@ document.onclick = function (e) {
   if (target.id === 'contentClose') {
     const content = target.parentElement;
     content.classList.remove('content-display');
+  }
+
+  if (target.classList.contains('fa-plus-square')) {
+    const movieId = target.dataset.movieId;
+    console.log(`added to wish list`);
+    console.log('MovieId: ', movieId);
   }
 };
 // Toggle Search Bar on/off

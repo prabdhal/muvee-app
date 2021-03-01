@@ -53,7 +53,7 @@
 
 div.movie-details {
   position: absolute;
-  height: 320px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,9 +63,29 @@ div.movie-details {
   transition: all 500ms;
 }
 
-.movie-details h3 {
+.movie-details .movie-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
   color: goldenrod;
   margin: 5px 0;
+  h3 {
+    display: flex;
+    flex: 90% 1 1;
+  }
+  button {
+    color: goldenrod;
+    background: transparent;
+    font-size: 1.5rem;
+    outline: 0;
+    border: 0;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    padding: 2px;
+    flex: 10% 1 1;
+    cursor: pointer;
+  }
 }
 
 .movie-details figcaption {

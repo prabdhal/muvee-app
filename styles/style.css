@@ -371,7 +371,7 @@ nav .search-and-account-container {
 
 div.movie-details {
   position: absolute;
-  height: 320px;
+  height: 350px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -389,9 +389,46 @@ div.movie-details {
   transition: all 500ms;
 }
 
-.movie-details h3 {
+.movie-details .movie-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
   color: goldenrod;
   margin: 5px 0;
+}
+
+.movie-details .movie-header h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 90%;
+      -ms-flex: 90% 1 1;
+          flex: 90% 1 1;
+}
+
+.movie-details .movie-header button {
+  color: goldenrod;
+  background: transparent;
+  font-size: 1.5rem;
+  outline: 0;
+  border: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  -webkit-box-flex: 10%;
+      -ms-flex: 10% 1 1;
+          flex: 10% 1 1;
+  cursor: pointer;
 }
 
 .movie-details figcaption {
