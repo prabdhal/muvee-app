@@ -52,3 +52,19 @@ footer {
   background-color: gold;
   border-radius: 10px;
 }
+
+@media only screen and (max-width: 1200px) {
+  .logo {
+    min-width: 100px;
+    width: 100%;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav .search-and-account-container {
+    min-width: 100px;
+    width: 100%;
+  }
+}
