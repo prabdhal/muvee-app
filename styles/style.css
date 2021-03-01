@@ -311,6 +311,8 @@ nav .search-and-account-container {
   width: 250px;
   margin: 0 7px;
   z-index: 10;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .movie-card {
@@ -322,8 +324,8 @@ nav .search-and-account-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .movie-card:first-child {
@@ -335,13 +337,30 @@ nav .search-and-account-container {
 }
 
 .movie-container:hover .movie-card {
-  cursor: pointer;
   -webkit-transform: rotateY(0.5turn);
           transform: rotateY(0.5turn);
 }
 
+.movie-poster {
+  opacity: 1;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.movie-container:hover .movie-card .movie-poster {
+  opacity: 0.1;
+}
+
+.movie-container:hover .movie-card .movie-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: rotateY(0.5turn);
+          transform: rotateY(0.5turn);
+  opacity: 1;
+}
+
 .movie-details {
-  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -353,10 +372,8 @@ nav .search-and-account-container {
   opacity: 0;
   margin: 0 7px;
   color: white;
-  -webkit-transform: rotateY(0.5turn);
-          transform: rotateY(0.5turn);
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .movie-details h3 {
@@ -424,6 +441,24 @@ h2 {
 
 .movie-video {
   border: none;
+}
+
+@-webkit-keyframes darkenPoster {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.1;
+  }
+}
+
+@keyframes darkenPoster {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.1;
+  }
 }
 
 footer {
