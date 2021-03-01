@@ -44,40 +44,42 @@ function movieSection(movies) {
     if (movie.poster_path) {
       const movieContainer = document.createElement('div');
       movieContainer.classList = 'movie-container';
+      movieContainer.setAttribute('data-movie-id', movie.id);
       const movieCard = document.createElement('div');
       movieCard.classList = 'movie-card';
 
       const img = document.createElement('img');
       img.src = `${IMAGE_URL}${movie.poster_path}`;
       img.classList = 'movie-poster';
-      img.setAttribute('data-movie-id', movie.id);
+      img.height = 375;
 
-      const movieDetails = document.createElement('article');
+      const movieDetails = document.createElement('div');
       movieDetails.classList = 'movie-details';
-      // movie title
       const movieTitle = document.createElement('h3');
       movieTitle.innerHTML = movie.title;
-      // movie overview
       const movieOverview = document.createElement('figcaption');
       movieOverview.innerHTML = movie.overview;
-      // movie information (year, popularity, viewer age)
+      const movieTrailerLink = document.createElement('div');
+      movieTrailerLink.innerHTML = 'View Trailers';
+      movieTrailerLink.classList = 'trailer-link';
+      movieTrailerLink.setAttribute('data-movie-id', movie.id);
       const movieInfo = document.createElement('div');
-
+      // child elements for movie info div
       const movieYear = document.createElement('span');
       const releaseYear = movie.release_date.substring(0, 4);
       movieYear.innerHTML = releaseYear;
-      const moviePopularity = document.createElement('span');
-      const popularityPercentage = Math.round(movie.popularity);
-      moviePopularity.innerHTML = popularityPercentage;
+      const movieRating = document.createElement('span');
+      movieRating.innerHTML = movie.vote_average;
       const movieDiscretion = document.createElement('span');
       movieDiscretion.innerHTML = movie.adult ? '18+' : 'All';
 
       movieInfo.appendChild(movieYear);
-      movieInfo.appendChild(moviePopularity);
+      movieInfo.appendChild(movieRating);
       movieInfo.appendChild(movieDiscretion);
 
       movieDetails.appendChild(movieTitle);
       movieDetails.appendChild(movieOverview);
+      movieDetails.appendChild(movieTrailerLink);
       movieDetails.appendChild(movieInfo);
       movieCard.appendChild(img);
       movieCard.appendChild(movieDetails);
@@ -155,34 +157,29 @@ document.onclick = function (e) {
     hideSearchBar();
   }
 
-  if (target.classList.contains('movie-poster')) {
-    // movie-details
-    //opacity 1;
-    const movieDetails = target.nextElementSibling;
-    console.log(movieDetails);
-    movieDetails.style.opacity = 1;
-    movieDetails.style.display = 'flex';
-    // opacity 0.1
-
+  if (target.classList.contains('trailer-link')) {
     // open movie content when clicking movie poster
-    // const movieId = target.dataset.movieId;
-    // console.log('MovieId: ', movieId);
-    // const section = e.target.parentElement;
-    // const content = section.nextElementSibling;
-    // content.classList.add('content-display');
+    const movieId = target.dataset.movieId;
+    console.log('MovieId: ', movieId);
 
-    // // fetch movie videos
-    // const path = `/movie/${movieId}/videos`;
-    // const videosUrl = generateUrl(path);
+    const section =
+      e.target.parentElement.parentElement.parentElement.parentElement;
+    const content = section.nextElementSibling;
+    content.classList.add('content-display');
+    console.log(section.nextElementSibling);
 
-    // fetch(videosUrl)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     createVideoTemplate(data, content);
-    //   })
-    //   .catch((err) => {
-    //     console.log('Error', err);
-    //   });
+    // fetch movie videos
+    const path = `/movie/${movieId}/videos`;
+    const videosUrl = generateUrl(path);
+
+    fetch(videosUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        createVideoTemplate(data, content);
+      })
+      .catch((err) => {
+        console.log('Error', err);
+      });
   }
 
   // close movie content

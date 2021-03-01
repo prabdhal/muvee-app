@@ -34,3 +34,21 @@ footer {
     margin: 0 10px;
   }
 }
+
+::-webkit-scrollbar {
+  height: 7px; /* height of horizontal scrollbar ← You're missing this */
+  width: 5px;
+  border: 1px solid goldenrod;
+  background-color: #203a43;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  border: 1px solid goldenrod;
+  background-color: #203a43;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:vertical {
+  border: 1px solid goldenrod;
+  background-color: gold;
+  border-radius: 10px;
+}
