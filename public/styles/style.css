@@ -309,6 +309,8 @@ nav .search-and-account-container {
   display: flex;
   width: 100%;
   overflow-x: auto;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
 }
 
 .section::-webkit-scrollbar {
@@ -321,8 +323,13 @@ nav .search-and-account-container {
   display: flex;
   position: relative;
   margin: 0 7px;
+  scroll-snap-align: center;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+}
+
+.movie-container::-webkit-scrollbar {
+  display: none;
 }
 
 .movie-card {
