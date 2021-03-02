@@ -69,6 +69,10 @@ footer {
     width: 100%;
   }
 
+  nav {
+    position: fixed;
+    z-index: 50;
+  }
   nav ul {
     display: none;
   }
