@@ -1,8 +1,9 @@
 const navDropDown = document.querySelector('nav-drop-down');
 const dropDownLink = document.querySelector('#dropDownLink');
 const dropDown = document.querySelector('#dropDown');
-
-// movie
+const menuBtn = document.querySelector('.menu-btn');
+const menuBg = document.querySelector('.menu-bg');
+const menuLines = document.querySelectorAll('.menu-line');
 const movieContainer = document.querySelectorAll('movie-container');
 
 dropDownLink.onmouseover = showDropDown;
@@ -18,7 +19,18 @@ function hideDropDown() {
   dropDown.classList.remove('open');
 }
 
-// movie-details
-//opacity 1;
+menuBtn.addEventListener('click', toggleMenuBg);
 
-// opacity 0.1
+function toggleMenuBg() {
+  if (menuBg.classList.contains('open-menu')) {
+    menuBg.classList.remove('open-menu');
+    menuLines.forEach((line) => {
+      line.classList.remove('dark-color');
+    });
+  } else {
+    menuBg.classList.add('open-menu');
+    menuLines.forEach((line) => {
+      line.classList.add('dark-color');
+    });
+  }
+}

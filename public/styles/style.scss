@@ -10,13 +10,19 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(#0f2027, #203a43, #2c5364);
+  background: linear-gradient(
+    #0f2027,
+    var(--darkBlueColor),
+    var(--mediumBlueColor)
+  );
   color: goldenrod;
 }
 
 :root {
   --navLinkMargin: 0 10px;
   --navLinkPadding: 23px 2px;
+  --darkBlueColor: #203a43;
+  --mediumBlueColor: #2c5364;
 }
 
 @import 'Navbar';
@@ -27,7 +33,11 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 4%;
-  background: linear-gradient(#0f2027, #203a43, #2c5364);
+  background: linear-gradient(
+    #0f2027,
+    var(--darkBlueColor),
+    var(--mediumBlueColor)
+  );
   box-shadow: 0.5px 0.5px 6px black;
 
   span {
@@ -39,12 +49,12 @@ footer {
   height: 7px; /* height of horizontal scrollbar ← You're missing this */
   width: 5px;
   border: 1px solid goldenrod;
-  background-color: #203a43;
+  background-color: var(--darkBlueColor);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:horizontal {
   border: 1px solid goldenrod;
-  background-color: #203a43;
+  background-color: var(--darkBlueColor);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:vertical {
@@ -55,16 +65,47 @@ footer {
 
 @media only screen and (max-width: 1200px) {
   .logo {
-    min-width: 100px;
+    max-width: 100px;
     width: 100%;
   }
 
   nav ul {
     display: none;
   }
-
-  nav .search-and-account-container {
-    min-width: 100px;
+  nav div.search-and-account-container {
     width: 100%;
+    min-width: 100px;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  nav div.search-and-account-container {
+    width: 100%;
+    min-width: 100px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  nav div.search-and-account-container {
+    width: 100%;
+    min-width: 100px;
+  }
+
+  @keyframes expandInput {
+    0% {
+      display: none;
+      width: 0;
+    }
+    2% {
+      display: flex;
+    }
+
+    100% {
+      width: 150px;
+    }
   }
 }

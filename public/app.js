@@ -4,7 +4,7 @@ const searchMovieButtonElement = document.querySelector('#searchMovieButton');
 const moviesSearchableElement = document.querySelector('#moviesSearchable');
 const moviesContainer = document.querySelector('#moviesContainer');
 
-const searchButton = document.querySelector('#searchButton');
+const searchButtonElement = document.querySelector('#searchButton');
 const searchMovieFormElement = document.querySelector('form');
 
 function handleError() {
@@ -208,7 +208,7 @@ document.onclick = function (e) {
   }
 };
 // Toggle Search Bar on/off
-searchButton.onclick = (e) => {
+searchButtonElement.onclick = (e) => {
   console.log(searchMovieFormElement);
   searchMovieFormElement.classList.add('show-form');
   movieSearchInputElement.classList.add('expand-input');
@@ -221,6 +221,7 @@ function hideSearchBar() {
   movieSearchInputElement.classList.add('search-input');
   searchMovieFormElement.classList.remove('show-form');
   movieSearchInputElement.classList.remove('expand-input');
+  searchMovieButtonElement.classList.add('abs');
 }
 
 function showSearchBar() {
@@ -228,6 +229,7 @@ function showSearchBar() {
   movieSearchInputElement.classList.add('expand-input');
   searchMovieFormElement.classList.remove('search-movie-form');
   movieSearchInputElement.classList.remove('search-input');
+  searchMovieButtonElement.classList.remove('abs');
 }
 
 searchMovie('Kung fu panda');

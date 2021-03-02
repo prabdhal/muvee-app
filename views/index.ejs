@@ -12,27 +12,39 @@
   <title>Movies App - Home</title>
 </head>
 <body>
-  <header>
+  <header id="#home">
     <nav>
       <a href="#" class="logo">Muvee App</a>
       <ul>
-        <li class="nav-link">Home</li>
-        <li class="nav-link">TV Shows</li>
-        <li class="nav-link" id="dropDownLink">Movies</li>
+        <li class="nav-link"><a href="#home">Home</a></li>
+        <li class="nav-link"><a href="#home">TV Shows</a></li>
+        <li class="nav-link" id="dropDownLink"><a href="#home">Movies</a></li>
         <ul class="nav-drop-down" id="dropDown">
           <li class="drop-link"><a href="#Trending Today">Trending Movies</a></li>
           <li class="drop-link"><a href="#Upcoming Movies">Upcoming Movies</a></li>
           <li class="drop-link"><a href="#Top Rated Movies">Top Rated Movies</a></li>
           <li class="drop-link"><a href="#Popular Movies">Popular Movies</a></li>
         </ul>
-        <li class="nav-link">MyFavourites</li>
+        <li class="nav-link"><a href="#home">MyFavourites</a></li>
       </ul>
       <div class="search-and-account-container">
         <i class="fas fa-search" id="searchButton"></i>
         <form class="hide-search-movie-form">
           <input type="text" class="hide-search-input" id="movieSearchInput" placeholder="Enter a movie...">
-          <button hidden type="submit" id="searchMovieButton"></button>
+          <button type="submit" class="fas fa-check-square abs" id="searchMovieButton"></button>
         </form>
+      </div>
+      <div class="menu-btn">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+      </div>
+      <div class="menu-bg">
+        <a href="#" class="menu-logo">Muvee App</a>
+        <li class="menu-link"><a href="#Trending Today">Trending Movies</a></li>
+        <li class="menu-link"><a href="#Upcoming Movies">Upcoming Movies</a></li>
+        <li class="menu-link"><a href="#Top Rated Movies">Top Rated Movies</a></li>
+        <li class="menu-link"><a href="#Popular Movies">Popular Movies</a></li>
       </div>
     </nav>
   </header>
